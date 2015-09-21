@@ -29,9 +29,9 @@ end
 
 dev_gem 'halite'
 dev_gem 'poise'
-dev_gem 'poise-application', path: '../application'
-dev_gem 'poise-application-git', path: '../application_git'
-dev_gem 'poise-application-python', path: '../application_python'
+dev_gem 'poise-application', path: '../application', github: 'poise/application'
+dev_gem 'poise-application-git', path: '../application_git', github: 'poise/application_git'
+dev_gem 'poise-application-python', path: '../application_python', github: 'poise/application_python'
 dev_gem 'poise-boiler'
 dev_gem 'poise-languages'
 dev_gem 'poise-python'
