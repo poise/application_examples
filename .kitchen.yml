@@ -1,0 +1,14 @@
+---
+#<% require 'poise_boiler' %>
+<%= PoiseBoiler.kitchen(platforms: 'linux') %>
+
+provisioner:
+  name: chef_solo
+  attributes:
+    poise-service:
+      provider: dummy
+
+suites:
+- name: default
+  run_list:
+  - recipe[application_examples::dpaste]
