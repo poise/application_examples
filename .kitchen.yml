@@ -12,3 +12,4 @@ suites:
 - name: default
   run_list:
   - recipe[application_examples::dpaste]
+  - recipe[application_examples::todo_express]

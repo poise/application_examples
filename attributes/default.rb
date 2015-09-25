@@ -15,3 +15,4 @@
 #
 
 default['dpaste']['path'] = '/srv/dpaste'
+default['todo_express']['path'] = '/srv/todo_express'

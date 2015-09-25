@@ -23,7 +23,9 @@ metadata
 cookbook 'poise', gem: 'poise'
 cookbook 'application', gem: 'poise-application'
 cookbook 'application_git', gem: 'poise-application-git'
+cookbook 'application_javascript', gem: 'poise-application-javascript'
 cookbook 'application_python', gem: 'poise-application-python'
+cookbook 'poise-javascript', gem: 'poise-javascript'
 cookbook 'poise-languages', gem: 'poise-languages'
 cookbook 'poise-python', gem: 'poise-python'
 

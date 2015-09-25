@@ -23,8 +23,9 @@ license 'Apache 2.0'
 description 'Examples for using the Application cookbooks.'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
+depends 'application', '~> 5.0'
+depends 'application_git', '~> 1.0'
+depends 'application_javascript', '~> 1.0'
+depends 'application_python', '~> 4.0'
 depends 'build-essential'
 depends 'poise', '~> 2.0'
-depends 'application', '~> 5.0'
-depends 'application_python', '~> 4.0'
-depends 'application_git', '~> 1.0'
