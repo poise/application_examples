@@ -21,6 +21,7 @@ directory '/data/db' do
   recursive true
 end
 # Download and unpack MongoDB.
+package 'tar'
 unpack = execute 'tar xzf /root/mongodb.tgz' do
   action :nothing
   cwd '/root'
