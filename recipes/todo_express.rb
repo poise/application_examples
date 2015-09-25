@@ -15,7 +15,7 @@
 #
 
 # Because older MongoDB segfaults if the locale isn't available.
-execute 'locale-gen en_US.UTF-8'
+execute 'locale-gen en_US.UTF-8' if platform_family?('debian')
 # Data folder.
 directory '/data/db' do
   recursive true
