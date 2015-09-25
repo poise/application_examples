@@ -34,7 +34,7 @@ dev_gem 'poise-application-git', path: '../application_git', github: 'poise/appl
 dev_gem 'poise-application-python', path: '../application_python', github: 'poise/application_python'
 dev_gem 'poise-application-javascript', path: '../application_javascript', github: 'poise/application_javascript'
 dev_gem 'poise-boiler', github: 'poise/poise-boiler'
-dev_gem 'poise-languages'
+dev_gem 'poise-languages',  github: 'poise/poise-languages'
 dev_gem 'poise-python'
 dev_gem 'poise-javascript', path: '../poise-javascript', github: 'poise/poise-javascript'
 dev_gem 'poise-service'
