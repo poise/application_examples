@@ -3,7 +3,45 @@
 [![Build Status](https://img.shields.io/travis/poise/application_examples.svg)](https://travis-ci.org/poise/application_examples)
 [![License](https://img.shields.io/badge/license-Apache_2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
-*Coming soon.*
+Example applications deployed using the [`application` cookbooks](https://github.com/poise/application).
+
+## Quick Start
+
+Clone or download this repository and then:
+
+```bash
+$ bundle install
+# ... install gem dependencies
+$ berks install
+# ... install Chef cookbook dependencies
+$ kitchen converge 14
+# ... launch Ubuntu 14.04 VMs for each example application
+```
+
+## Applications
+
+### [Dpaste](https://github.com/poise/application_examples/blob/master/recipes/dpaste.rb)
+
+Dpaste is a pastebin application written in Django that powers
+[pastebin.de](http://pastebin.de/). Here we are deploying it on top of SQLite as
+the database and Gunicorn as the web server.
+
+```bash
+$ kitchen converge dpaste-ubuntu-1404
+$ kitchen login dpaste-ubuntu-1404
+$ curl http://localhost/
+```
+
+### [Todo_Express](https://github.com/poise/application_examples/blob/master/recipes/todo_express.rb)
+
+Todo_Express is a todo list application written in Express and backed by Node.js
+and MongoDB.
+
+```bash
+$ kitchen converge todo-express-ubuntu-1404
+$ kitchen login todo-express-ubuntu-1404
+$ curl http://localhost:3000/
+```
 
 ## Sponsors
 
