@@ -9,7 +9,9 @@ provisioner:
       provider: dummy
 
 suites:
-- name: default
+- name: dpaste
   run_list:
   - recipe[application_examples::dpaste]
+- name: todo_express
+  run_list:
   - recipe[application_examples::todo_express]
