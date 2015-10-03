@@ -15,17 +15,25 @@
 #
 
 # A reduced MongoDB recipe to install just enough for our tests.
-include_recipe 'application_examples::_mongodb'
 
-# Application resource for Todo_Express.
-application node['todo_express']['path'] do
-  # Clone the source code from GitHub.
-  git 'https://github.com/azat-co/todo-express.git'
-  # Install the latest Node.js.
-  javascript 'nodejs'
-  # Run `npm install` to install dependencies.
-  npm_install
-  # Create a system service to run `npm start` to get the application listening
-  # on port 3000.
-  npm_start
+# Because older MongoDB segfaults if the locale isn't available.
+execute 'locale-gen en_US.UTF-8' if platform_family?('debian')
+# MongoDB data folder.
+directory '/data/db' do
+  recursive true
+end
+# Download and unpack MongoDB binary builds.
+package 'tar'
+unpack = execute 'tar xzf /root/mongodb.tgz' do
+  action :nothing
+  cwd '/root'
+end
+remote_file '/root/mongodb.tgz' do
+  source 'https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz'
+  notifies :run, unpack, :immediately
+end
+# Make a system service.
+poise_service 'mongodb' do
+  provider :dummy
+  command '/root/mongodb-linux-x86_64-3.0.6/bin/mongod'
 end

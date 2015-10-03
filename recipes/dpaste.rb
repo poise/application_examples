@@ -14,24 +14,41 @@
 # limitations under the License.
 #
 
-# For compiling Mysqldb even though we don't use it.
+# For compiling Mysqldb even though we don't use it, because it is in the
+# requirements.txt no matter what.
 include_recipe 'build-essential'
+package node.value_for_platform(
+  %w{debian ubuntu} => {default: 'libmysqlclient-dev'},
+  %w{redhat centos} => {'~> 7.0' => 'mariadb-devel', '~> 6.0' => 'mysql-devel'},
+)
 
+# Application resource for Dpaste.
 application node['dpaste']['path'] do
+  # Clone the source code from GitHub.
   git 'https://github.com/bartTC/dpaste.git'
+  # Install Python 2.x for our application.
   python '2'
+  # Create a virtualenv for our application.
   virtualenv
-  package node.value_for_platform(%w{debian ubuntu} => {default: 'libmysqlclient-dev'}, %w{redhat centos} => {'~> 7.0' => 'mariadb-devel', '~> 6.0' => 'mysql-devel'})
+  # Run `pip install -r requirements.txt` to install dependencies.
   pip_requirements
+  # Write out a settings file to include the app-level base settings and then
+  # our local settings.
   file ::File.join(path, 'dpaste', 'settings', 'deploy.py') do
     content "from dpaste.settings.base import *\nfrom dpaste.settings.local_settings import *\n"
   end
+  # Run Django deployment steps for this application.
   django do
+    # Set the ALLOWED_HOSTS.
     allowed_hosts ['localhost', node['fqdn']]
+    # Set the DJANGO_SETTINGS_MODULE.
     settings_module 'dpaste.settings.deploy'
+    # Configure the Django ORM to use a local SQLite database.
     database 'sqlite:///dpaste.db'
+    # Run syncdb and migrate because this is a one-server "toy" application.
     syncdb true
     migrate true
   end
+  # Create a system service to run Gunicorn on port 80.
   gunicorn
 end
