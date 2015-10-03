@@ -33,7 +33,8 @@ application node['dpaste']['path'] do
   # Run `pip install -r requirements.txt` to install dependencies.
   pip_requirements
   # Write out a settings file to include the app-level base settings and then
-  # our local settings.
+  # our local settings. In a more normal application flow, we would import
+  # local_settings directly in the main settings.py file.
   file ::File.join(path, 'dpaste', 'settings', 'deploy.py') do
     content "from dpaste.settings.base import *\nfrom dpaste.settings.local_settings import *\n"
   end
