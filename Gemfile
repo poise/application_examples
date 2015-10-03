@@ -27,14 +27,14 @@ def dev_gem(name, path: File.join('..', name), github: nil)
   end
 end
 
-dev_gem 'halite', github: 'poise/halite'
-dev_gem 'poise', github: 'poise/poise'
-dev_gem 'poise-application', path: '../application', github: 'poise/application'
-dev_gem 'poise-application-git', path: '../application_git', github: 'poise/application_git'
+dev_gem 'halite'
+dev_gem 'poise'
+dev_gem 'poise-application', path: '../application'
+dev_gem 'poise-application-git', path: '../application_git'
 dev_gem 'poise-application-python', path: '../application_python', github: 'poise/application_python'
 dev_gem 'poise-application-javascript', path: '../application_javascript', github: 'poise/application_javascript'
-dev_gem 'poise-boiler', github: 'poise/poise-boiler'
-dev_gem 'poise-languages',  github: 'poise/poise-languages'
+dev_gem 'poise-boiler'
+dev_gem 'poise-languages'
 dev_gem 'poise-python'
-dev_gem 'poise-javascript', path: '../poise-javascript', github: 'poise/poise-javascript'
+dev_gem 'poise-javascript'
 dev_gem 'poise-service'
