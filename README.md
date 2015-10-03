@@ -20,9 +20,10 @@ $ kitchen converge 14
 
 ## Applications
 
-### [Dpaste](https://github.com/poise/application_examples/blob/master/recipes/dpaste.rb)
+### Dpaste
 
-Dpaste is a pastebin application written in Django that powers
+[Dpaste](https://github.com/poise/application_examples/blob/master/recipes/dpaste.rb)
+is a pastebin application written in Django that powers
 [pastebin.de](http://pastebin.de/). Here we are deploying it on top of SQLite as
 the database and Gunicorn as the web server.
 
@@ -32,10 +33,10 @@ $ kitchen login dpaste-ubuntu-1404
 $ curl http://localhost/
 ```
 
-### [Todo_Express](https://github.com/poise/application_examples/blob/master/recipes/todo_express.rb)
+### Todo_Express
 
-Todo_Express is a todo list application written in Express and backed by Node.js
-and MongoDB.
+[Todo_Express](https://github.com/poise/application_examples/blob/master/recipes/todo_express.rb)
+is a todo list application written in Express and backed by Node.js and MongoDB.
 
 ```bash
 $ kitchen converge todo-express-ubuntu-1404
