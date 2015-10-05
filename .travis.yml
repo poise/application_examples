@@ -18,3 +18,4 @@ script:
 - "./bin/rake travis"
 gemfile:
 - test/gemfiles/chef-12.gemfile
+- test/gemfiles/master.gemfile
