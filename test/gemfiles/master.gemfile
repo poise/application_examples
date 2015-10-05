@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-eval_gemfile File.expand_path('../../../Gemfile', __FILE__)
+# Don't pull in the core Gemfile because it would conflict on sources.
 
 gem 'chef', github: 'chef/chef'
 gem 'halite', github: 'poise/halite'
