@@ -31,29 +31,30 @@ describe 'todo_rails' do
     subject { http.get('/') }
     its(:code) { is_expected.to eq '200' }
     its(:body) { is_expected.to include '<title>Getting Things Done with Engine Yard</title>' }
+    its(:body) { is_expected.to include 'Rock on!' }
   end
 
-  # describe '/tasks' do
-  #   subject { http.get('/tasks') }
-  #   its(:code) { is_expected.to eq '200' }
-  #   its(:body) { is_expected.to include '<title>Todo List | Express.js Todo App</title>' }
-  # end
+  describe '/lists/1/tasks' do
+    subject { http.get('/lists/1/tasks') }
+    its(:code) { is_expected.to eq '200' }
+    its(:body) { is_expected.to include 'Rock on!' }
+  end
 
-  # describe 'with a task' do
-  #   # Random task each time for test isolation-ish.
-  #   let(:task_text) { SecureRandom.hex(10) }
-  #   subject do
-  #     tasks_page = http.get('/tasks')
-  #     # Look for something like value="FTy2twC7-VV1iU3l656C2do87u0CRU1oHpK0" name="_csrf"
-  #     unless tasks_page.body =~ /value="([^"]+)" name="_csrf"/
-  #       raise 'CSRF token not found'
-  #     end
-  #     csrf_token = $1
-  #     cookie = tasks_page.response['set-cookie'].split('; ')[0]
-  #     http.post('/tasks', "_csrf=#{csrf_token}&name=#{task_text}", {'Cookie' => cookie})
-  #     http.get('/tasks')
-  #   end
-  #   its(:code) { is_expected.to eq '200' }
-  #   its(:body) { is_expected.to include task_text }
-  # end
+  describe 'with a task' do
+    # Random task each time for test isolation-ish.
+    let(:task_text) { SecureRandom.hex(10) }
+    subject do
+      index = http.get('/')
+      # Look for something like name="csrf-token" content="6UPNa+SBVhZ/fgJK78OJUjb7LwftMCtrRxZ8D79vInI9SDkuSnfsd0f3BFYuBgtE6YPmMMO3y7Ruja0+YIk7XQ=="
+      unless index.body =~ /name="csrf-token" content="([^"]+)"/
+        raise 'CSRF token not found'
+      end
+      csrf_token = $1
+      cookie = index.response['set-cookie'].split('; ')[0]
+      http.post('/lists/1/tasks', "authenticity_token=#{csrf_token}&task[name]=#{task_text}&task[list_id]=1&task[done]=false", {'Cookie' => cookie})
+      http.get('/')
+    end
+    its(:code) { is_expected.to eq '200' }
+    its(:body) { is_expected.to include task_text }
+  end
 end
