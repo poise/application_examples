@@ -15,3 +15,6 @@ suites:
 - name: todo_express
   run_list:
   - recipe[application_examples::todo_express]
+- name: todo_rails
+  run_list:
+  - recipe[application_examples::todo_rails]

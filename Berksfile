@@ -24,9 +24,11 @@ cookbook 'application', gem: 'poise-application'
 cookbook 'application_git', gem: 'poise-application-git'
 cookbook 'application_javascript', gem: 'poise-application-javascript'
 cookbook 'application_python', gem: 'poise-application-python'
+cookbook 'application_ruby', gem: 'poise-application-ruby'
 cookbook 'poise-javascript', gem: 'poise-javascript'
 cookbook 'poise-languages', gem: 'poise-languages'
 cookbook 'poise-python', gem: 'poise-python'
+cookbook 'poise-ruby', gem: 'poise-ruby'
 
 group :test do
   cookbook 'apt'
