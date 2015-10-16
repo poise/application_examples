@@ -26,7 +26,7 @@ package node.value_for_platform(
 application node['todo_rails']['path'] do
   # Clone the source code from GitHub.
   git 'https://github.com/engineyard/todo.git'
-  # Install Ruby 2.x.
+  # Install Ruby.
   ruby 'any' do
     version ''
   end
