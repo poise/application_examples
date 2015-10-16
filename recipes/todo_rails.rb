@@ -27,7 +27,9 @@ application node['todo_rails']['path'] do
   # Clone the source code from GitHub.
   git 'https://github.com/engineyard/todo.git'
   # Install Ruby 2.x.
-  ruby '2'
+  ruby 'any' do
+    version ''
+  end
   # Install node for execjs and link it globally.
   node = javascript 'nodejs'
   link '/usr/bin/node' do
