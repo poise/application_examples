@@ -31,5 +31,5 @@ describe 'application_examples::todo_express' do
   recipe metadata[:description]
 
   it { is_expected.to deploy_application('/srv/todo_express') }
-  it { is_expected.to install_application_npm_install('/srv/todo_express').with(npm_binary: '/opt/nodejs-4.1.1/bin/npm') }
+  it { is_expected.to install_application_npm_install('/srv/todo_express').with(npm_binary: %r{/opt/nodejs-[^/]+/bin/npm}) }
 end
