@@ -31,3 +31,5 @@ gem 'poise-python', github: 'poise/poise-python'
 gem 'poise-javascript', github: 'poise/poise-javascript'
 gem 'poise-ruby', github: 'poise/poise-ruby'
 gem 'poise-service', github: 'poise/poise-service'
+
+gem 'berkshelf', '~> 4.0'
