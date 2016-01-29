@@ -29,7 +29,3 @@ cookbook 'poise-javascript', gem: 'poise-javascript'
 cookbook 'poise-languages', gem: 'poise-languages'
 cookbook 'poise-python', gem: 'poise-python'
 cookbook 'poise-ruby', gem: 'poise-ruby'
-
-group :test do
-  cookbook 'apt'
-end

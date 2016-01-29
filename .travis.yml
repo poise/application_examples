@@ -11,7 +11,6 @@ addons:
 env:
   global:
   - USE_SYSTEM_GECODE=true
-  - KITCHEN_LOCAL_YAML=.kitchen.travis.yml
   - secure: lBgtBItCpcCPttjmPHw1rpzt+FGX7Vs9qQch9FEopig6mD2YhoUMXCqZJXMLU5QUQad3iz37DcuOACUeH0KiSTqvM5x9pFkNnrZ06Lmxt8JIcWJOFwFpCXEcdbO8ATuJdiT2U+4Zly3YbKyK/Jqb9daYGw20DElgO8pWW49xX8Llg44Idcmc0sAw1lK8gQa/rA9ZV1daW7042OTNefkf/gSuF3ZsX4SKyajhk17kWcrqIxjoMDeiH9oBgjJ8phQ1GRBAnrnUsURm7tP/D4KcsnJevdKNkXJXRPfpm7SHIankg0ZN1ZgjzhUdFpxbn/ab2JOR6Zyz49urMYgnhdu2ebxzxX7FVpq2qWyBkTB5fknUNv1YK+yTautQm6edrGLK4KoJvxOYombeOC/i80O0JUmAHxz3Lb8mje8NlbkGmHsxCB2B/qsDIgF873xkxCpJNjBqb5mRrXKb4kvBUNAoTXwx+mWsFI6RtNSTNyc/ZTd4oG5qUGFqyjh3n6TsQE9UarJ/1J42E1obGEp6P6czA1HaLCE+zIxf1xDxLM/UsYNmp/GaqiEQcRPJnprD3DqcjYLx+XUr/rnZjX9ihEEvDlMKetMvOgYMtvhMnm8dANHhc3vHgWchZgy5ib6c+5n4GOSXFFO8tEegXjuZv4sfTcfgVmPFOJ+9MrU5PP529no=
 bundler_args: "--binstubs=$PWD/bin --jobs 3 --retry 3"
 script:

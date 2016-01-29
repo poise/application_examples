@@ -1,6 +1,6 @@
 ---
 #<% require 'poise_boiler' %>
-<%= PoiseBoiler.kitchen(platforms: 'linux') %>
+<%= PoiseBoiler.kitchen %>
 
 provisioner:
   name: chef_solo
