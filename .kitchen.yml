@@ -1,6 +1,6 @@
 ---
 #<% require 'poise_boiler' %>
-<%= PoiseBoiler.kitchen %>
+<%= PoiseBoiler.kitchen(cookbook_name: 'application_examples') %>
 
 provisioner:
   name: chef_solo
