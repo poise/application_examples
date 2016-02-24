@@ -22,6 +22,8 @@ maintainer_email 'noah@coderanger.net'
 license 'Apache 2.0'
 description 'Examples for using the Application cookbooks.'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+source_url "https://github.com/poise/application_examples" if defined?(source_url)
+issues_url "https://github.com/poise/application_examples/issues" if defined?(issues_url)
 
 depends 'application', '~> 5.0'
 depends 'application_git', '~> 1.0'
