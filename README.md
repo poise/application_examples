@@ -33,6 +33,18 @@ $ kitchen login dpaste-ubuntu-1404
 $ curl http://localhost/
 ```
 
+### Todo_Rails
+
+[Todo_Rails](https://github.com/poise/application_examples/blob/master/recipes/todo_rails.rb)
+is a todo list application written in Rails. We are deploying on SQlite and
+Unicorn.
+
+```bash
+$ kitchen converge todo-rails-ubuntu-1404
+$ kitchen login todo-rails-ubuntu-1404
+$ curl http://localhost:8000/
+```
+
 ### Todo_Express
 
 [Todo_Express](https://github.com/poise/application_examples/blob/master/recipes/todo_express.rb)
