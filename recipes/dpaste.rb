@@ -46,8 +46,7 @@ application node['dpaste']['path'] do
     settings_module 'dpaste.settings.deploy'
     # Configure the Django ORM to use a local SQLite database.
     database 'sqlite:///dpaste.db'
-    # Run syncdb and migrate because this is a one-server "toy" application.
-    syncdb true
+    # Run migrate because this is a one-server "toy" application.
     migrate true
   end
   # Create a system service to run Gunicorn on port 80.
