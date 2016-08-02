@@ -24,13 +24,8 @@ directory '/data/db' do
 end
 # Download and unpack MongoDB binary builds.
 package 'tar'
-unpack = execute 'tar xzf /root/mongodb.tgz' do
-  action :nothing
-  cwd '/root'
-end
-remote_file '/root/mongodb.tgz' do
-  source 'https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz'
-  notifies :run, unpack, :immediately
+poise_archive 'https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz' do
+  destination '/root/mongodb-linux-x86_64-3.0.6'
 end
 # Make a system service.
 poise_service 'mongodb' do
