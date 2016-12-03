@@ -14,12 +14,12 @@
 # limitations under the License.
 #
 
-# For compiling Mysqldb even though we don't use it, because it is in the
+# For compiling Postgres even though we don't use it, because it is in the
 # requirements.txt no matter what.
 include_recipe 'build-essential'
 package node.value_for_platform(
-  %w{debian ubuntu} => {default: 'libmysqlclient-dev'},
-  %w{redhat centos} => {'~> 7.0' => 'mariadb-devel', '~> 6.0' => 'mysql-devel'},
+  %w{debian ubuntu} => {default: 'libpq-dev'},
+  %w{redhat centos} => {default: 'postgresql-devel'},
 )
 
 # Application resource for Dpaste.
