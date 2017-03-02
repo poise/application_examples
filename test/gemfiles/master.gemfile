@@ -19,6 +19,7 @@ source 'https://rubygems.org/'
 
 gem 'chef', github: 'chef/chef'
 gem 'halite', github: 'poise/halite'
+gem 'ohai', github: 'chef/ohai'
 gem 'poise', github: 'poise/poise'
 gem 'poise-application', github: 'poise/application'
 gem 'poise-application-git', github: 'poise/application_git'
