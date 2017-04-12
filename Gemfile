@@ -43,4 +43,4 @@ dev_gem 'poise-javascript'
 dev_gem 'poise-ruby'
 dev_gem 'poise-service'
 
-gem 'berkshelf', '~> 4.0'
+gem 'berkshelf', '~> 5.0'
