@@ -26,6 +26,7 @@ source_url 'https://github.com/poise/application_examples' if defined?(source_ur
 issues_url 'https://github.com/poise/application_examples/issues' if defined?(issues_url)
 supports 'ubuntu'
 supports 'centos'
+chef_version '>= 12', '< 14'
 
 depends 'application', '~> 5.0'
 depends 'application_git', '~> 1.0'
