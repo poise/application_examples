@@ -35,6 +35,8 @@ application node['todo_rails']['path'] do
   link '/usr/bin/node' do
     to nodejs.javascript_binary
   end
+  # Install timezone data.
+  package 'tzdata' if node.platform_family?('debian')
   # Run `bundle install` to install dependencies.
   bundle_install
   # Handle Rails deployment.

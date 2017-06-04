@@ -17,7 +17,10 @@
 # A reduced MongoDB recipe to install just enough for our tests.
 
 # Because older MongoDB segfaults if the locale isn't available.
-execute 'locale-gen en_US.UTF-8' if platform_family?('debian')
+if platform_family?('debian')
+  package 'locales'
+  execute 'locale-gen en_US.UTF-8'
+end
 # MongoDB data folder.
 directory '/data/db' do
   recursive true
