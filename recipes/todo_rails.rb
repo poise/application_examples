@@ -22,6 +22,9 @@ package node.value_for_platform(
                         '~> 6.0' => %w{mysql-devel postgresql-libs postgresql-devel sqlite-devel}},
 )
 
+# Install timezone data needed by rails.
+package 'tzdata' if platform_family?('debian')
+
 # Application resource for Todo_Express.
 application node['todo_rails']['path'] do
   # Clone the source code from GitHub.
@@ -35,8 +38,6 @@ application node['todo_rails']['path'] do
   link '/usr/bin/node' do
     to nodejs.javascript_binary
   end
-  # Install timezone data.
-  package 'tzdata' if node.platform_family?('debian')
   # Run `bundle install` to install dependencies.
   bundle_install
   # Handle Rails deployment.
